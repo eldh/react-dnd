@@ -1,32 +1,36 @@
-[![npm version](https://img.shields.io/npm/v/react-dnd.svg?style=flat-square)](https://www.npmjs.com/package/react-dnd)
-[![npm downloads](https://img.shields.io/npm/dm/react-dnd.svg?style=flat-square)](https://www.npmjs.com/package/react-dnd)
-[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Freact-dnd%2Freact-dnd%2Fbadge%3Fref%3Dmain&style=flat)](https://actions-badge.atrox.dev/react-dnd/react-dnd/goto?ref=main)
-[![codecov](https://codecov.io/gh/react-dnd/react-dnd/branch/main/graph/badge.svg)](https://codecov.io/gh/react-dnd/react-dnd)
+[![npm package](https://img.shields.io/npm/v/react-dnd-html5-backend.svg?style=flat-square)](https://www.npmjs.org/package/react-dnd-html5-backend)
+[![Build Status](https://travis-ci.org/react-dnd/react-dnd-html5-backend.svg?branch=main)](https://travis-ci.org/react-dnd/react-dnd-html5-backend)
+[![dependencies Status](https://david-dm.org/react-dnd/react-dnd-html5-backend/status.svg)](https://david-dm.org/react-dnd/react-dnd-html5-backend)
+[![devDependencies Status](https://david-dm.org/react-dnd/react-dnd-html5-backend/dev-status.svg)](https://david-dm.org/react-dnd/react-dnd-html5-backend?type=dev)
+[![peerDependencies Status](https://david-dm.org/react-dnd/react-dnd-html5-backend/peer-status.svg)](https://david-dm.org/react-dnd/react-dnd-html5-backend?type=peer)
 
-# React _DnD_
+# React DnD HTML5 Backend
 
-Drag and Drop for React.
+The officially supported HTML5 backend for [React DnD](http://react-dnd.github.io/react-dnd/).
+See [the docs](http://react-dnd.github.io/react-dnd/docs/backends/html5) for usage information.
 
-See the docs, tutorials and examples on the website:
+## Installation
 
-http://react-dnd.github.io/react-dnd/
+If you use [npm](http://npmjs.com):
 
-See the changelog on the Releases page:
+```
+npm install --save react-dnd-html5-backend
+```
 
-https://github.com/react-dnd/react-dnd/releases
+The npm package defaults to the CommonJS build.
 
-Questions? Find us on the Reactiflux Discord Server (**#need-help**)
+However it also includes a pre-minified UMD build in the `dist` folder.
+The UMD build exports a global `window.ReactDnDHTML5Backend` when imported as a `<script>` tag.
 
-https://www.reactiflux.com/
+If you’d rather not use npm, you can use [unpkg](http://unpkg.com/) to access the UMD build directly: [ReactDnDHTML5Backend.min.js](https://unpkg.com/react-dnd-html5-backend@latest/dist/ReactDnDHTML5Backend.min.js).
+You may point your Bower config to it.
 
-### Technical Details
+## Browser Support
 
-- ES Modules w/ Embedded CJS for Jest Testing
-- Ships w/ TS Typings
-- Browserlist Target: `>0.25%, not dead`
+We strive to support the evergreen browsers, Safari 7+, as well as IE11+. IE10 should also work, but `DragLayer` is fairly useless because IE10 doesn’t support `pointer-events: none`. We don’t officially support IE9 and less.
 
-### Shoutouts 🙏
+Unfortunately the browser bugs, inconsistencies, and regressions come up from time to time, so please make sure you test your app on the browsers you’re interested in, and report any bugs to us.
 
-<img src="/assets/browserstack-logo-600x315.png" height="80" title="BrowserStack Logo" alt="BrowserStack Logo" />
+## License
 
-Big thanks to [BrowserStack](https://www.browserstack.com) for letting the maintainers use their service to debug browser issues.
+MIT

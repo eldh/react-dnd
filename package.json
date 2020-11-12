@@ -1,105 +1,37 @@
 {
-  "name": "react-dnd-parent",
-  "private": true,
-  "description": "React-DnD Monorepo",
+  "name": "react-dnd-html5-backend",
+  "version": "11.1.3",
+  "description": "HTML5 backend for React DnD",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
+  "sideEffects": false,
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/react-dnd/react-dnd.git"
   },
-  "keywords": [
-    "react",
-    "reactjs",
-    "file",
-    "drag",
-    "drop",
-    "html5",
-    "draggable",
-    "droppable",
-    "drag-and-drop",
-    "dnd",
-    "javascript",
-    "react-component",
-    "hoc"
-  ],
-  "engines": {
-    "node": ">= 10.0"
-  },
-  "author": "Dan Abramov <dan.abramov@me.com> (http://github.com/gaearon)",
-  "contributors": [
-    "Chris Trevino <darthtrevino@gmail.com> (http://github.com/darthtrevino)",
-    "Jordan Gensler (http://github.com/kesne)",
-    "Gagan (https://github.com/thetechie)"
-  ],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/react-dnd/react-dnd/issues"
-  },
-  "homepage": "https://github.com/react-dnd/react-dnd",
   "scripts": {
-    "preinstall": "npx only-allow yarn",
-    "clean_all": "yarn workspaces foreach -pv run clean",
-    "build_all": "yarn workspaces foreach -pv --topological-dev run build",
-    "test_all": "yarn workspaces foreach -pv run test",
-    "build_docsite": "yarn build:docsite",
-    "unit_test": "jest",
-    "unit_test:watch": "jest --watch",
-    "unit_test:coverage": "jest --coverage",
-    "lint:code": "eslint . --ext .js,.ts,.jsx,.tsx",
-    "lint:spelling": "mdspell 'packages/documentation/docsite/markdown/**/*.md' --en-us --report",
-    "lint:tone": "alex .",
-    "lint:formatting": "pretty-quick --check",
-    "lint": "run-s 'lint:*'",
-    "changelog": "conventional-changelog -p eslint -i CHANGELOG.md -s -r 0",
-    "ci": "npm-run-all -s build_all -p test_all lint unit_test:coverage build_docsite -s git-is-clean",
-    "prettify:source": "prettier 'packages/*/*/src/**/*.ts*'",
-    "prettify": "pretty-quick --fix",
-    "precommit:lint": "lint-staged",
-    "precommit:format": "pretty-quick --staged",
-    "watch": "yarn workspaces foreach -pvi run watch",
-    "git-is-clean": "git diff-index --quiet HEAD"
+    "clean": "gulp clean",
+    "build": "gulp build",
+    "watch": "gulp watch"
   },
-  "workspaces": [
-    "packages/*"
-  ],
-  "devDependencies": {
-    "@commitlint/cli": "^11.0.0",
-    "@commitlint/config-conventional": "^11.0.0",
-    "@types/jest": "^26.0.14",
-    "@types/node": "^14.11.10",
-    "@typescript-eslint/eslint-plugin": "^4.4.1",
-    "@typescript-eslint/parser": "^4.4.1",
-    "alex": "^9.0.1",
-    "conventional-changelog-cli": "^2.1.0",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.5",
-    "eslint": "^7.11.0",
-    "eslint-config-prettier": "^6.13.0",
-    "eslint-config-react-app": "^5.2.1",
-    "eslint-plugin-no-for-of-loops": "^1.0.1",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-react": "^7.21.4",
-    "eslint-plugin-react-hooks": "^4.1.2",
-    "husky": "^4.3.0",
-    "inquirer": "^7.3.3",
-    "jest": "~26.4.2",
-    "jest-environment-jsdom": "^26.5.2",
-    "lint-staged": "^10.4.1",
-    "markdown-spellcheck": "^1.3.1",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.1.2",
-    "pretty-quick": "^3.1.0",
-    "react-dnd": "workspace:packages/react-dnd",
-    "react-dnd-html5-backend": "workspace:packages/backend-html5",
-    "react-dnd-test-backend": "workspace:packages/backend-test",
-    "react-dnd-test-utils": "workspace:packages/test-utils",
-    "react-dnd-touch-backend": "workspace:packages/backend-touch",
-    "replace-in-file": "^6.1.0",
-    "rimraf": "^3.0.2",
-    "ts-jest": "~26.4.1",
-    "typescript": "^4.0.3"
+  "dependencies": {
+    "dnd-core": "^11.1.3"
   },
-  "resolutions": {
-    "@types/react": "16.9.51",
-    "@types/react-dom": "16.9.8"
+  "devDependencies": {},
+  "umd": {
+    "name": "ReactDnDHTML5Backend",
+    "input": "./dist/esm/index.js",
+    "external": [
+      "react",
+      "react-dom",
+      "react-dnd"
+    ],
+    "globals": {
+      "react": "React",
+      "react-dom": "ReactDOM",
+      "react-dnd": "ReactDnD"
+    }
   }
 }

@@ -1,8 +1,11 @@
 {
-  "extends": "./tsconfig.base.json",
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "baseUrl": ".",
-    "allowSyntheticDefaultImports": true
+    "outDir": "./lib",
+    "baseUrl": "./src"
   },
-  "exclude": ["**/node_modules/**", "**/lib/**"]
+  "exclude": [
+    "../../../node_modules/@types/enzyme/node_modules/@types/react/index.d.ts"
+  ],
+  "include": ["./src/index.ts"]
 }
